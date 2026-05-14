@@ -1,0 +1,325 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:root {
+    --mechanic-bg: #16181d;
+    --mechanic-panel: #1f232a;
+    --mechanic-panel-2: #272c34;
+    --mechanic-border: #3a404a;
+    --mechanic-text: #eef1f5;
+    --mechanic-muted: #a8b0bb;
+    --mechanic-accent: #c21f2f;
+    --mechanic-accent-hover: #e33648;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body.mechanic-body {
+    color: var(--mechanic-text);
+    background:
+        radial-gradient(circle at top, rgba(194, 31, 47, 0.18), transparent 30%),
+        linear-gradient(180deg, #111319 0%, #171b21 40%, #0e1014 100%);
+    font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+.mechanic-navbar {
+    background: linear-gradient(90deg, #20242b 0%, #171a20 60%, #101318 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mechanic-main {
+    position: relative;
+}
+
+.mechanic-main::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 85%);
+    opacity: 0.35;
+}
+
+.container,
+.card,
+.alert,
+.table,
+.navbar {
+    position: relative;
+    z-index: 1;
+}
+
+.card,
+.table {
+    background: rgba(31, 35, 42, 0.95);
+    color: var(--mechanic-text);
+    border-color: var(--mechanic-border);
+}
+
+.card-header,
+.card-body,
+.table-container,
+.table-responsive {
+    background: rgba(31, 35, 42, 0.95);
+    color: var(--mechanic-text);
+}
+
+.table > :not(caption) > * > * {
+    background-color: transparent;
+    color: var(--mechanic-text);
+}
+
+.table thead th {
+    background: var(--mechanic-panel-2);
+    color: #f5f7fa;
+}
+
+.card {
+    border-radius: 1rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28) !important;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead.table-dark {
+    --bs-table-bg: #2c3139;
+    --bs-table-color: #f5f7fa;
+}
+
+.table tbody tr {
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.table-hover tbody tr:hover {
+    --bs-table-accent-bg: rgba(194, 31, 47, 0.08);
+    color: var(--mechanic-text);
+}
+
+.badge-mechanic {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(194, 31, 47, 0.18);
+    color: #ffd7db;
+    border: 1px solid rgba(194, 31, 47, 0.35);
+    font-size: 0.85rem;
+}
+
+.btn-edit-custom,
+.btn-delete-custom {
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    font-weight: 600;
+}
+
+.btn-edit-custom {
+    --bs-btn-color: #dff6ff;
+    --bs-btn-bg: rgba(13, 110, 253, 0.18);
+    --bs-btn-border-color: rgba(13, 110, 253, 0.35);
+    --bs-btn-hover-bg: rgba(13, 110, 253, 0.32);
+    --bs-btn-hover-border-color: rgba(13, 110, 253, 0.5);
+}
+
+.btn-delete-custom {
+    --bs-btn-color: #ffe2e5;
+    --bs-btn-bg: rgba(220, 53, 69, 0.16);
+    --bs-btn-border-color: rgba(220, 53, 69, 0.35);
+    --bs-btn-hover-bg: rgba(220, 53, 69, 0.3);
+    --bs-btn-hover-border-color: rgba(220, 53, 69, 0.5);
+}
+
+.form-control,
+.form-select {
+    background-color: var(--mechanic-panel-2);
+    color: var(--mechanic-text);
+    border-color: var(--mechanic-border);
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: var(--mechanic-panel-2);
+    color: var(--mechanic-text);
+    border-color: var(--mechanic-accent);
+    box-shadow: 0 0 0 0.25rem rgba(194, 31, 47, 0.2);
+}
+
+.form-control::placeholder {
+    color: var(--mechanic-muted);
+}
+
+.text-body-secondary,
+.form-label,
+.table,
+.alert {
+    color: var(--mechanic-text);
+}
+
+.text-body-secondary {
+    color: var(--mechanic-muted) !important;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--mechanic-accent);
+    --bs-btn-border-color: var(--mechanic-accent);
+    --bs-btn-hover-bg: var(--mechanic-accent-hover);
+    --bs-btn-hover-border-color: var(--mechanic-accent-hover);
+    --bs-btn-active-bg: #aa1826;
+    --bs-btn-active-border-color: #aa1826;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #ff6b75;
+    --bs-btn-border-color: #ff6b75;
+    --bs-btn-hover-bg: #ff6b75;
+    --bs-btn-hover-border-color: #ff6b75;
+    --bs-btn-hover-color: #1a1d24;
+}
+
+.btn-outline-danger {
+    --bs-btn-color: #ff8d97;
+    --bs-btn-border-color: #ff8d97;
+    --bs-btn-hover-bg: #ff8d97;
+    --bs-btn-hover-border-color: #ff8d97;
+    --bs-btn-hover-color: #1a1d24;
+}
+
+.btn-light,
+.btn-outline-secondary {
+    --bs-btn-color: #e6e9ee;
+    --bs-btn-border-color: rgba(255, 255, 255, 0.18);
+    --bs-btn-hover-bg: rgba(255, 255, 255, 0.12);
+    --bs-btn-hover-border-color: rgba(255, 255, 255, 0.26);
+    --bs-btn-hover-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.alert-success {
+    --bs-alert-bg: rgba(34, 197, 94, 0.12);
+    --bs-alert-border-color: rgba(34, 197, 94, 0.3);
+    --bs-alert-color: #d8f5e3;
+}
+
+.nav-link.active {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.navbar-brand {
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.navbar .nav-link:hover {
+    color: #ffffff;
+}
+
+.invalid-feedback {
+    color: #ffb4bb;
+}
+
+.entity-page {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+}
+
+.entity-shell {
+    width: 100%;
+}
+
+.entity-card {
+    border: 0;
+    border-radius: 1.25rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28) !important;
+    background: rgba(31, 35, 42, 0.96);
+    color: var(--mechanic-text);
+}
+
+.entity-card .card-header {
+    background: rgba(39, 44, 52, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.entity-title {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.entity-subtitle {
+    color: var(--mechanic-muted);
+}
+
+.entity-form .input-group-text {
+    width: 45px;
+    justify-content: center;
+    border-right: none;
+    background: transparent;
+    color: var(--mechanic-muted);
+    border-color: var(--mechanic-border);
+}
+
+.entity-form .form-control,
+.entity-form .form-select {
+    border-left: none;
+    background-color: var(--mechanic-panel-2);
+    color: var(--mechanic-text);
+}
+
+.entity-form .form-control:focus,
+.entity-form .form-select:focus {
+    background-color: var(--mechanic-panel-2);
+    color: var(--mechanic-text);
+    border-color: var(--mechanic-accent);
+    box-shadow: 0 0 0 0.25rem rgba(194, 31, 47, 0.2);
+}
+
+.entity-form .form-control.is-invalid,
+.entity-form .form-select.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.entity-form .form-control::placeholder {
+    color: var(--mechanic-muted);
+}
+
+.entity-actions {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.25rem;
+    margin-top: 1rem;
+}
+
+.entity-index-card .card-header,
+.entity-index-card .card-body {
+    background: transparent;
+}
+
+.entity-index-card .table-responsive {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.entity-muted {
+    color: var(--mechanic-muted) !important;
+}
